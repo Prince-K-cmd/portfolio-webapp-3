@@ -1,49 +1,53 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { motion, AnimatePresence } from "framer-motion"
-import Link from "next/link"
-import { Menu, X, Github, Linkedin, Mail, Download, Lock } from 'lucide-react'
-import { Button } from "@/components/ui/button"
-import { ThemeToggle } from "@/components/theme-toggle"
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import Link from "next/link";
+import { Menu, X, Github, Linkedin, Mail, Download, Lock } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { ThemeToggle } from "@/components/theme-toggle";
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from "@/components/ui/tooltip"
-
-const menuItems = [
-  { name: "About", href: "#about", color: "text-blue-400" },
-  { name: "Skills", href: "#skills", color: "text-cyan-400" },
-  { name: "Projects", href: "#projects", color: "text-indigo-400" },
-  { name: "Contact", href: "#contact", color: "text-purple-400" },
-]
+} from "@/components/ui/tooltip";
+import { logoData, menuItems, socialLinks, resumeLink } from "@/data/header";
 
 export function Header() {
-  const [isOpen, setIsOpen] = useState(false)
-  const [activeSection, setActiveSection] = useState("")
-  const [isScrolled, setIsScrolled] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isAdminButtonClicked, setIsAdminButtonClicked] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = document.querySelectorAll("section[id]")
-      const scrollPosition = window.scrollY + 100
+      const sections = document.querySelectorAll("section[id]");
+      const scrollPosition = window.scrollY + 100;
 
       sections.forEach((section) => {
-        const sectionTop = section.offsetTop
-        const sectionHeight = section.clientHeight
-        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-          setActiveSection(section.id)
+        if (
+          section &&
+          typeof section.getClientRects !== "undefined" &&
+          section.getClientRects().length > 0
+        ) {
+          const sectionTop = section.getBoundingClientRect().top;
+          const sectionHeight = section.clientHeight;
+          if (
+            scrollPosition >= sectionTop &&
+            scrollPosition < sectionTop + sectionHeight
+          ) {
+            setActiveSection(section.id);
+          }
         }
-      })
+      });
 
-      setIsScrolled(window.scrollY > 20)
-    }
+      setIsScrolled(window.scrollY > 20);
+    };
 
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <header
@@ -58,22 +62,25 @@ export function Header() {
               animate={{ opacity: 1, x: 0 }}
               className="flex items-center space-x-2"
             >
-              <span className="text-blue-400">{`<`}</span>
+              <span className="text-blue-400">{logoData.startBracket}</span>
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-400">
-                KPrince-Coder
+                {logoData.text}
               </span>
-              <span className="text-indigo-400">{`/>`}</span>
+              <span className="text-indigo-400">{logoData.endBracket}</span>
             </motion.div>
           </Link>
 
           {/* Desktop Navigation - Full */}
-          <nav className="hidden xl:flex items-center justify-center space-x-8">
+          <nav className="hidden md:flex items-center justify-center space-x-8">
             {menuItems.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
-                className={`text-sm font-semibold transition-colors hover:text-blue-400 relative
-                  ${activeSection === item.href.slice(1) ? item.color : "text-muted-foreground"}`}
+                className={`text-sm font-semibold transition-colors hover:text-blue-400 relative ${
+                  activeSection === item.href.slice(1)
+                    ? item.color
+                    : "text-muted-foreground"
+                }`}
               >
                 {item.name}
                 {activeSection === item.href.slice(1) && (
@@ -84,7 +91,7 @@ export function Header() {
           </nav>
 
           {/* Desktop Actions - Full */}
-          <div className="hidden xl:flex items-center space-x-4">
+          <div className="hidden md:flex items-center space-x-4">
             <TooltipProvider>
               <Tooltip>
                 <TooltipTrigger asChild>
@@ -127,12 +134,9 @@ export function Header() {
                   <Button
                     variant="default"
                     className="flex items-center space-x-2 bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600"
-                    asChild
                   >
-                    <Link href="/resume.pdf" download>
-                      <Download className="h-4 w-4" />
-                      <span>Resume</span>
-                    </Link>
+                    <Download className="h-4 w-4" />
+                    <span>Resume</span>
                   </Button>
                 </TooltipTrigger>
                 <TooltipContent>
@@ -144,8 +148,14 @@ export function Header() {
                   <Button
                     variant="ghost"
                     size="icon"
-                    className="relative group admin-button"
-                    onClick={() => console.log("Admin authentication")}
+                    className={`relative group admin-button ${
+                      isAdminButtonClicked ? "clicked" : ""
+                    }`}
+                    onClick={() => {
+                      console.log("Admin authentication");
+                      setIsAdminButtonClicked(true);
+                    }}
+                    onMouseLeave={() => setIsAdminButtonClicked(false)}
                   >
                     <Lock className="h-5 w-5 transition-colors group-hover:text-blue-400" />
                     <span className="sr-only">Admin</span>
@@ -159,19 +169,7 @@ export function Header() {
             </TooltipProvider>
           </div>
 
-          {/* Tablet Navigation (1024px - 1279px) */}
-          <div className="hidden md:flex xl:hidden items-center space-x-4">
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setIsOpen(!isOpen)}
-            >
-              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </Button>
-            <ThemeToggle />
-          </div>
-
-          {/* Mobile Navigation (< 768px) */}
+          {/* Mobile Menu Button */}
           <div className="flex md:hidden items-center space-x-4">
             <ThemeToggle />
             <Button
@@ -179,20 +177,24 @@ export function Header() {
               size="icon"
               onClick={() => setIsOpen(!isOpen)}
             >
-              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              {isOpen ? (
+                <X className="h-6 w-6" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              )}
             </Button>
           </div>
         </div>
       </div>
 
-      {/* Mobile/Tablet Menu */}
+      {/* Mobile Menu */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-background/95 backdrop-blur-sm border-b"
+            className="md:hidden bg-background border-b"
           >
             <div className="container mx-auto px-4 py-4">
               <nav className="flex flex-col space-y-4">
@@ -201,7 +203,9 @@ export function Header() {
                     key={item.name}
                     href={item.href}
                     className={`text-sm font-medium transition-colors hover:text-blue-400 ${
-                      activeSection === item.href.slice(1) ? item.color : "text-muted-foreground"
+                      activeSection === item.href.slice(1)
+                        ? item.color
+                        : "text-muted-foreground"
                     }`}
                     onClick={() => setIsOpen(false)}
                   >
@@ -224,17 +228,6 @@ export function Header() {
                       <Mail className="h-5 w-5" />
                     </Link>
                   </Button>
-                  <Button
-                    variant="default"
-                    size="sm"
-                    className="bg-gradient-to-r from-blue-500 to-cyan-500"
-                    asChild
-                  >
-                    <Link href="/resume.pdf" download>
-                      <Download className="h-4 w-4 mr-2" />
-                      Resume
-                    </Link>
-                  </Button>
                 </div>
               </nav>
             </div>
@@ -242,6 +235,5 @@ export function Header() {
         )}
       </AnimatePresence>
     </header>
-  )
+  );
 }
-

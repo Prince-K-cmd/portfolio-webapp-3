@@ -61,10 +61,9 @@ export function Contact() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="text-3xl font-bold text-center mb-12 relative pb-4"
+          className="section-title"
         >
           Get in Touch
-          <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-20 h-1 bg-gradient-to-r from-blue-500 to-cyan-500"></span>
         </motion.h2>
         <motion.div
           initial={{ opacity: 0, y: 20 }}

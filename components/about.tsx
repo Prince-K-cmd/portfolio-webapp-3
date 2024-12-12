@@ -1,55 +1,10 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import Image from "next/image"
-import { Briefcase, GraduationCap, Code2, Heart } from 'lucide-react'
-import { Badge } from "@/components/ui/badge"
-import { experience, education, interests } from '@/data/about'
-import { technicalSkills } from '@/data/skills'
-
-//const technicalSkills = [
-//  { name: "React/Next.js", proficiency: 90 },
-//  { name: "TypeScript", proficiency: 85 },
-//  { name: "Node.js", proficiency: 80 },
-//  { name: "Python", proficiency: 75 },
-//  { name: "AWS", proficiency: 70 },
-//]
-
-//const experience = [
-//  {
-//    title: "Senior Software Engineer",
-//    company: "Tech Company",
-//    period: "2022 - Present",
-//    description: "Leading development of cloud-native applications using React and Node.js.",
-//  },
-//  {
-//    title: "Software Developer",
-//    company: "Startup Name",
-//    period: "2020 - 2022",
-//    description: "Developed and maintained full-stack web applications.",
-//  },
-//]
-
-//const education = [
-//  {
-//    degree: "Bachelor of Science in Computer Science",
-//    school: "University Name",
-//    period: "2018 - 2022",
-//  },
-//  {
-//    degree: "AWS Certified Solutions Architect",
-//    school: "Amazon Web Services",
-//    period: "2023",
-//  },
-//]
-
-//const interests = [
-//  "Open Source",
-//  "AI/ML",
-//  "Game Development",
-//  "Photography",
-//  "Hiking",
-//]
+import { motion } from "framer-motion";
+import Image from "next/image";
+import { Briefcase, GraduationCap, Code2, Heart } from "lucide-react";
+import { experience, education, interests } from "@/data/about";
+import { technicalSkills } from "@/data/skills";
 
 export function About() {
   return (
@@ -75,7 +30,7 @@ export function About() {
             <div className="relative w-48 h-48">
               <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 blur-lg opacity-50" />
               <Image
-                src="/profile.jpg"
+                src="/images/profile.jpg"
                 alt="Prince Kyeremeh"
                 width={192}
                 height={192}
@@ -85,11 +40,13 @@ export function About() {
             <div className="flex-1 text-center md:text-left">
               <h3 className="text-2xl font-bold mb-4">Prince Kyeremeh</h3>
               <p className="text-muted-foreground">
-                A passionate software engineer with a strong foundation in full-stack development. Specialized
-                in building modern web applications using cutting-edge technologies. Committed to writing
-                clean, efficient code and staying current with emerging technologies. When I&apos;m not coding,
-                you can find me exploring new technologies, contributing to open-source projects, or sharing
-                knowledge with the developer community.
+                A passionate software engineer with a strong foundation in
+                full-stack development. Specialized in building modern web
+                applications using cutting-edge technologies. Committed to
+                writing clean, efficient code and staying current with emerging
+                technologies. When I&apos;m not coding, you can find me
+                exploring new technologies, contributing to open-source
+                projects, or sharing knowledge with the developer community.
               </p>
             </div>
           </div>
@@ -140,7 +97,10 @@ export function About() {
             </div>
             <div className="space-y-4">
               {education.map((item) => (
-                <div key={item.degree} className="border-l-2 border-blue-400 pl-4">
+                <div
+                  key={item.degree}
+                  className="border-l-2 border-blue-400 pl-4"
+                >
                   <h4 className="font-semibold">{item.degree}</h4>
                   <p className="text-muted-foreground">{item.school}</p>
                   <p className="text-sm text-muted-foreground">{item.period}</p>
@@ -162,7 +122,10 @@ export function About() {
             </div>
             <div className="space-y-6">
               {experience.map((item) => (
-                <div key={item.title} className="border-l-2 border-blue-400 pl-4">
+                <div
+                  key={item.title}
+                  className="border-l-2 border-blue-400 pl-4"
+                >
                   <h4 className="font-semibold">{item.title}</h4>
                   <p className="text-muted-foreground">{item.company}</p>
                   <p className="text-sm text-muted-foreground">{item.period}</p>
@@ -197,6 +160,5 @@ export function About() {
         </div>
       </div>
     </section>
-  )
+  );
 }
-
