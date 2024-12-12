@@ -1,39 +1,67 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { motion } from "framer-motion"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { useToast } from "@/components/ui/use-toast"
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { useToast } from "@/hooks/use-toast";
 
 export function Contact() {
-  const [name, setName] = useState("")
-  const [email, setEmail] = useState("")
-  const [message, setMessage] = useState("")
-  const { toast } = useToast()
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const { toast } = useToast();
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
+    e.preventDefault();
+
+    // Basic form validation
+    if (!name || !email || !message) {
+      toast({
+        title: "Validation Error",
+        description: "Please fill out all fields.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    // Email validation regex
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      toast({
+        title: "Invalid Email",
+        description: "Please enter a valid email address.",
+        variant: "destructive",
+      });
+      return;
+    }
+
     // Here you would typically send the form data to a server
-    console.log("Form submitted:", { name, email, message })
+    console.log("Form submitted:", { name, email, message });
+
     toast({
       title: "Message Sent!",
       description: "Thank you for your message. I'll get back to you soon.",
-    })
-    setName("")
-    setEmail("")
-    setMessage("")
-  }
+    });
+
+    // Reset form fields
+    setName("");
+    setEmail("");
+    setMessage("");
+  };
 
   return (
-    <section id="contact" className="py-20 bg-gradient-to-b from-blue-900/20 to-background">
+    <section
+      id="contact"
+      className="py-20 bg-gradient-to-b from-blue-900/20 to-background"
+    >
       <div className="container mx-auto px-4">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="text-3xl font-bold text-center mb-12 relative"
+          className="text-3xl font-bold text-center mb-12 relative pb-4"
         >
           Get in Touch
           <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-20 h-1 bg-gradient-to-r from-blue-500 to-cyan-500"></span>
@@ -54,6 +82,7 @@ export function Contact() {
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 required
+                placeholder="Your Name"
               />
             </div>
             <div>
@@ -66,10 +95,14 @@ export function Contact() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
+                placeholder="your.email@example.com"
               />
             </div>
             <div>
-              <label htmlFor="message" className="block text-sm font-medium mb-2">
+              <label
+                htmlFor="message"
+                className="block text-sm font-medium mb-2"
+              >
                 Message
               </label>
               <Textarea
@@ -78,15 +111,18 @@ export function Contact() {
                 onChange={(e) => setMessage(e.target.value)}
                 required
                 rows={4}
+                placeholder="Your message..."
               />
             </div>
-            <Button type="submit" className="w-full bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600">
+            <Button
+              type="submit"
+              className="w-full bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600"
+            >
               Send Message
             </Button>
           </form>
         </motion.div>
       </div>
     </section>
-  )
+  );
 }
-
