@@ -1,9 +1,9 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { motion } from "framer-motion"
-import { CodeBlock } from "@/components/code-block"
-import { BubblesBackground } from "@/components/BubblesBackground"
+import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import { CodeBlock } from "@/components/code-block";
+import { BubblesBackground } from "@/components/bubbles-background";
 
 const codeSnippets = [
   {
@@ -52,20 +52,23 @@ result = df.groupBy("category").agg({"amount": "sum"})
 result.show()
     `,
   },
-]
+];
 
 export function Hero() {
-  const [currentSnippet, setCurrentSnippet] = useState(0)
+  const [currentSnippet, setCurrentSnippet] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentSnippet((prev) => (prev + 1) % codeSnippets.length)
-    }, 5000)
-    return () => clearInterval(interval)
-  }, [])
+      setCurrentSnippet((prev) => (prev + 1) % codeSnippets.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
-    <section id="hero" className="min-h-screen flex items-center pt-16 relative overflow-hidden">
+    <section
+      id="hero"
+      className="min-h-screen flex items-center pt-16 relative overflow-hidden"
+    >
       <div className="absolute inset-0 z-0">
         <BubblesBackground />
       </div>
@@ -81,14 +84,20 @@ export function Hero() {
               <span className="gradient-text">Prince Kyeremeh</span>
             </h1>
             <p className="text-xl text-muted-foreground mb-8">
-              A passionate developer specializing in Android development, frontend
-              engineering, and data engineering. I create elegant solutions to complex
-              problems.
+              A passionate developer specializing in Android development,
+              frontend engineering, and data engineering. I create elegant
+              solutions to complex problems.
             </p>
             <div className="flex flex-wrap gap-4">
-              <span className="px-4 py-2 rounded-full bg-blue-500/10 text-blue-400">Android Developer</span>
-              <span className="px-4 py-2 rounded-full bg-cyan-500/10 text-cyan-400">Frontend Developer</span>
-              <span className="px-4 py-2 rounded-full bg-indigo-500/10 text-indigo-400">Data Engineer</span>
+              <span className="px-4 py-2 rounded-full bg-blue-500/10 text-blue-400">
+                Android Developer
+              </span>
+              <span className="px-4 py-2 rounded-full bg-cyan-500/10 text-cyan-400">
+                Frontend Developer
+              </span>
+              <span className="px-4 py-2 rounded-full bg-indigo-500/10 text-indigo-400">
+                Data Engineer
+              </span>
             </div>
           </motion.div>
           <motion.div
@@ -98,11 +107,13 @@ export function Hero() {
             className="hidden lg:block relative"
           >
             <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-cyan-500 opacity-20 blur-xl rounded-lg"></div>
-            <CodeBlock language={codeSnippets[currentSnippet].language} code={codeSnippets[currentSnippet].code} />
+            <CodeBlock
+              language={codeSnippets[currentSnippet].language}
+              code={codeSnippets[currentSnippet].code}
+            />
           </motion.div>
         </div>
       </div>
     </section>
-  )
+  );
 }
-

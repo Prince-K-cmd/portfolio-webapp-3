@@ -1,14 +1,14 @@
-"use client"
+"use client";
 
-import { useCallback } from "react"
-import Particles from "react-tsparticles"
-import type { Engine } from "tsparticles-engine"
-import { loadSlim } from "tsparticles-slim"
+import { useCallback } from "react";
+import Particles from "react-tsparticles";
+import type { Engine } from "tsparticles-engine";
+import { loadSlim } from "tsparticles-slim";
 
 export function BubblesBackground() {
   const particlesInit = useCallback(async (engine: Engine) => {
-    await loadSlim(engine)
-  }, [])
+    await loadSlim(engine);
+  }, []);
 
   return (
     <Particles
@@ -51,7 +51,7 @@ export function BubblesBackground() {
             color: "#3b82f6",
             distance: 150,
             enable: true,
-            opacity: 0.5,
+            opacity: 0.4,
             width: 1,
           },
           move: {
@@ -72,7 +72,7 @@ export function BubblesBackground() {
             value: 80,
           },
           opacity: {
-            value: 0.5,
+            value: 0.4,
           },
           shape: {
             type: "circle",
@@ -84,6 +84,5 @@ export function BubblesBackground() {
         detectRetina: true,
       }}
     />
-  )
+  );
 }
-
