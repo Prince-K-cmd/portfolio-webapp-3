@@ -150,6 +150,9 @@
 }
 
 @layer utilities {
+  html {
+    scroll-behavior: smooth;
+  }
   .animate-pulse-slow {
     animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   }
@@ -212,6 +215,10 @@
 
   .animate-morphing-blob {
     animation: morphing-blob 15s ease-in-out infinite;
+  }
+
+  .theme-toggle-transition {
+    @apply transition-all duration-300 ease-in-out;
   }
 }
 
