@@ -22,23 +22,17 @@ export function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = document.querySelectorAll("section[id]");
+      const sections = document.querySelectorAll("section");
       const scrollPosition = window.scrollY + 100;
 
       sections.forEach((section) => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
         if (
-          section &&
-          typeof section.getClientRects !== "undefined" &&
-          section.getClientRects().length > 0
+          scrollPosition >= sectionTop &&
+          scrollPosition < sectionTop + sectionHeight
         ) {
-          const sectionTop = section.getBoundingClientRect().top;
-          const sectionHeight = section.clientHeight;
-          if (
-            scrollPosition >= sectionTop &&
-            scrollPosition < sectionTop + sectionHeight
-          ) {
-            setActiveSection(section.id);
-          }
+          setActiveSection(section.id);
         }
       });
 
