@@ -4,13 +4,13 @@ import { Moon, RotateCw, Sun } from "lucide-react";
 export const themeConfig = {
   light: {
     icon: Sun,
-    name: "Light Mode",
+    name: "Light",
     description: "Bright and clean interface",
     color: "text-yellow-500",
   },
   dark: {
     icon: Moon,
-    name: "Dark Mode",
+    name: "Dark",
     description: "Easy on the eyes",
     color: "text-indigo-500",
   },
