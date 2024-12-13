@@ -199,16 +199,38 @@ export function Hero() {
               frontend engineering, and data engineering. I create elegant
               solutions to complex problems.
             </p>
+            {/* Animated Badges */}
             <div className="flex flex-wrap gap-4">
-              <span className="px-4 py-2 rounded-full bg-blue-500/10 text-blue-400">
-                Android Developer
-              </span>
-              <span className="px-4 py-2 rounded-full bg-cyan-500/10 text-cyan-400">
-                Frontend Developer
-              </span>
-              <span className="px-4 py-2 rounded-full bg-green-500/10 text-green-400">
-                Data Engineer
-              </span>
+              {[
+                {
+                  text: "Android Developer",
+                  color: "bg-blue-500/10 text-blue-400",
+                  icon: Smartphone,
+                },
+                {
+                  text: "Frontend Developer",
+                  color: "bg-cyan-500/10 text-cyan-400",
+                  icon: Code2,
+                },
+                {
+                  text: "Data Engineer",
+                  color: "bg-green-500/10 text-green-400",
+                  icon: Database,
+                },
+              ].map((badge, _) => (
+                <div
+                  className={`
+                      flex items-center space-x-2
+                      px-4 py-2 rounded-full
+                      ${badge.color}
+                      transition-all
+                      group
+                    `}
+                >
+                  <badge.icon className="w-4 h-4 group-hover:rotate-12 transition-transform" />
+                  <span>{badge.text}</span>
+                </div>
+              ))}
             </div>
           </motion.div>
 
