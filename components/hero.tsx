@@ -1,11 +1,12 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { CodeBlock } from "@/components/code-block";
-import { BubblesBackground } from "@/components/bubbles-background";
 import { codeSnippets } from "@/data/code-snippets";
-import { Smartphone, Code2, Database, Layers, RotateCw } from "lucide-react";
+import { AnimatePresence, motion } from "framer-motion";
+import { Code2, Database, Layers, RotateCw, Smartphone } from "lucide-react";
+import { useEffect, useState } from "react";
+import { CodeBlock } from "./code-block";
+import { BubblesBackground } from "./bubbles-background";
+import { heroCTAButtons, languageBadges } from "@/data/hero";
 
 export function Hero() {
   const [currentSnippetIndex, setCurrentSnippetIndex] = useState(0);
@@ -158,9 +159,9 @@ export function Hero() {
           <button
             onClick={() => setIsCodeModalOpen(true)}
             className="
-              flex items-center space-x-4 
-              bg-background/80 backdrop-blur-sm 
-              rounded-xl border border-blue-500/20 
+              flex items-center space-x-4
+              bg-background/80 backdrop-blur-sm
+              rounded-xl border border-blue-500/20
               p-4 shadow-lg
               hover:bg-blue-500/10
               transition-all duration-300
@@ -190,47 +191,106 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              <span className="text-muted-foreground">Hi, I&apos;m</span>{" "}
-              <span className="gradient-text">Prince Kyeremeh</span>
-            </h1>
+            {/* Hero Title Section */}
+            <div className="mb-4">
+              <h1 id="hero-title" className="text-4xl md:text-6xl font-bold">
+                <span className="text-muted-foreground text-2xl block mb-2">
+                  Hi, I&apos;m
+                </span>
+                <span className="gradient-text">Prince Kyeremeh</span>
+              </h1>
+            </div>
             <p className="text-xl text-muted-foreground mb-8">
               A passionate developer specializing in Android development,
               frontend engineering, and data engineering. I create elegant
               solutions to complex problems.
             </p>
-            {/* Animated Badges */}
-            <div className="flex flex-wrap gap-4">
-              {[
-                {
-                  text: "Android Developer",
-                  color: "bg-blue-500/10 text-blue-400",
-                  icon: Smartphone,
-                },
-                {
-                  text: "Frontend Developer",
-                  color: "bg-cyan-500/10 text-cyan-400",
-                  icon: Code2,
-                },
-                {
-                  text: "Data Engineer",
-                  color: "bg-green-500/10 text-green-400",
-                  icon: Database,
-                },
-              ].map((badge, _) => (
-                <div
-                  className={`
+
+            {/* Animated Professional Skills Badges */}
+            <div className="mb-4">
+              <div
+                className="flex flex-wrap gap-2"
+                aria-label="Professional Skills"
+              >
+                {languageBadges.map((badge) => (
+                  <div
+                    key={badge.text}
+                    className={`
                       flex items-center space-x-2
-                      px-4 py-2 rounded-full
+                      px-3 py-1.5 rounded-full
                       ${badge.color}
                       transition-all
                       group
+                      hover:scale-105
+                      active:scale-95
+                      cursor-default
                     `}
-                >
-                  <badge.icon className="w-4 h-4 group-hover:rotate-12 transition-transform" />
-                  <span>{badge.text}</span>
-                </div>
-              ))}
+                    role="tooltip"
+                    aria-label={badge.description}
+                  >
+                    <badge.icon
+                      className="w-4 h-4
+                      group-hover:rotate-12
+                      transition-transform"
+                      aria-hidden="true"
+                    />
+                    <span className="text-sm font-medium">{badge.text}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Call to Action Buttons */}
+            <div className="mt-8">
+              <div className="flex flex-wrap gap-4">
+                {heroCTAButtons.map((button) => (
+                  <a
+                    key={button.text}
+                    href={button.href}
+                    className={`
+                                  inline-flex items-center justify-center
+                                  px-5 py-2.5
+                                  rounded-full
+                                  ${button.color}
+                                  ${button.textColor}
+                                  hover:opacity-90
+                                  active:opacity-80
+                                  transition-all
+                                  shadow-md
+                                  group
+                                  transform
+                                  hover:scale-105
+                                  active:scale-95
+                                  focus:outline-none
+                                  focus:ring-2
+                                  focus:ring-offset-2
+                                  focus:ring-blue-500
+                                  text-sm
+                                  w-48 sm-36 // Fixed width for both buttons
+
+                                `}
+                    target={button.text === "View CV" ? "_blank" : undefined}
+                    rel={
+                      button.text === "View CV"
+                        ? "noopener nor                   referrer"
+                        : undefined
+                    }
+                    aria-label={button.ariaLabel}
+                  >
+                    <button.icon
+                      className="
+                                    w-4 h-4
+                                    mr-2
+                                    group-hover:rotate-6
+                                    group-active:rotate-12
+                                    transition-transform
+                                  "
+                      aria-hidden="true"
+                    />
+                    <span className="font-medium">{button.text}</span>
+                  </a>
+                ))}
+              </div>
             </div>
           </motion.div>
 
@@ -244,3 +304,253 @@ export function Hero() {
     </section>
   );
 }
+
+// "use client";
+
+// import { useState, useEffect, useCallback } from "react";
+// import { motion, AnimatePresence } from "framer-motion";
+
+// // Components
+// import { CodeBlock } from "@/components/code-block";
+// import { BubblesBackground } from "@/components/bubbles-background";
+
+// // Data Imports
+// import { codeSnippets } from "@/data/code-snippets";
+// import { resumeLink } from "@/data/header";
+// import { languageBadges, heroCTAButtons } from "@/data/hero";
+
+// // Icons
+// import {
+//   Layers,
+//   RotateCw,
+//   Code2,
+//   Smartphone,
+//   Database,
+//   MessageCircle,
+//   Download,
+// } from "lucide-react";
+
+// // Performance and Accessibility Configs
+// const SNIPPET_ROTATION_INTERVAL = 10000; // 10 seconds
+// const MOBILE_BREAKPOINT = 1024;
+
+// export function Hero() {
+//   // State Management
+//   const [currentSnippetIndex, setCurrentSnippetIndex] = useState(0);
+//   const [isMobile, setIsMobile] = useState(false);
+//   const [isCodeModalOpen, setIsCodeModalOpen] = useState(false);
+
+//   // Responsive Check
+//   const checkMobileView = useCallback(() => {
+//     setIsMobile(window.innerWidth < MOBILE_BREAKPOINT);
+//   }, []);
+
+//   // Responsive and Snippet Rotation Effects
+//   useEffect(() => {
+//     checkMobileView();
+//     window.addEventListener("resize", checkMobileView);
+
+//     const snippetInterval = setInterval(() => {
+//       setCurrentSnippetIndex((prev) => (prev + 1) % codeSnippets.length);
+//     }, SNIPPET_ROTATION_INTERVAL);
+
+//     return () => {
+//       window.removeEventListener("resize", checkMobileView);
+//       clearInterval(snippetInterval);
+//     };
+//   }, [checkMobileView]);
+
+//   // Code Exploration Modal (keep existing implementation)
+//   const CodeExplorationModal = () => {
+//     const currentSnippet = codeSnippets[currentSnippetIndex];
+
+//     return (
+//       <AnimatePresence>
+//         {isCodeModalOpen && (
+//           <motion.div
+//             initial={{ opacity: 0, scale: 0.8 }}
+//             animate={{ opacity: 1, scale: 1 }}
+//             exit={{ opacity: 0, scale: 0.8 }}
+//             className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm"
+//             aria-modal="true"
+//             role="dialog"
+//           >
+//             {/* Modal Content (keep existing implementation) */}
+//           </motion.div>
+//         )}
+//       </AnimatePresence>
+//     );
+//   };
+
+//   // Render Code Content (keep existing implementation)
+//   const renderHeroContent = () => {
+//     const currentSnippet = codeSnippets[currentSnippetIndex];
+
+//     if (!isMobile) {
+//       return (
+//         <motion.div
+//           key={currentSnippetIndex}
+//           initial={{ opacity: 0, scale: 0.9 }}
+//           animate={{ opacity: 1, scale: 1 }}
+//           exit={{ opacity: 0, scale: 0.9 }}
+//           transition={{
+//             duration: 0.5,
+//             type: "spring",
+//             stiffness: 100,
+//           }}
+//           className="group neon-glow relative"
+//         >
+//           {/* Code Snippet Content (keep existing implementation) */}
+//         </motion.div>
+//       );
+//     } else {
+//       return (
+//         <motion.div
+//           initial={{ opacity: 0, y: 20 }}
+//           animate={{ opacity: 1, y: 0 }}
+//           className="flex items-center justify-center"
+//         >
+//           <button
+//             onClick={() => setIsCodeModalOpen(true)}
+//             className="flex items-center space-x-4 bg-background/80 backdrop-blur-sm rounded-xl border border-blue-500/20 p-4 shadow-lg hover:bg-blue-500/10 transition-all"
+//             aria-label="Explore Code Snippets"
+//           >
+//             <Layers className="w-6 h-6 text-blue-500" />
+//             <span className="text-lg font-medium">Explore Code Snippets</span>
+//           </button>
+//         </motion.div>
+//       );
+//     }
+//   };
+
+//   return (
+//     <section
+//       id="hero"
+//       data-section="hero"
+//       className="min-h-screen flex items-center pt-24 relative overflow-hidden"
+//       aria-labelledby="hero-title"
+//     >
+//       <div className="absolute inset-0 z-0">
+//         <BubblesBackground />
+//       </div>
+//       <div className="container mx-auto px-4 relative z-10">
+//         <div className="grid lg:grid-cols-2 gap-12 items-center">
+//           <motion.div
+//             initial={{ opacity: 0, y: 20 }}
+//             animate={{ opacity: 1, y: 0 }}
+//             transition={{ duration: 0.5 }}
+//             className="space-y-6"
+//           >
+//             {/* Hero Title Section */}
+//             <div className="mb-4">
+//               <h1 id="hero-title" className="text-4xl md:text-6xl font-bold">
+//                 <span className="text-muted-foreground text-2xl block mb-2">
+//                   Hi, I&apos;m
+//                 </span>
+//                 <span className="gradient-text">Prince Kyeremeh</span>
+//               </h1>
+
+//               <p
+//                 className="text-xl text-muted-foreground max-w-xl mt-3"
+//                 aria-describedby="hero-description"
+//               >
+//                 A passionate developer specializing in Android development,
+//                 frontend engineering, and data engineering. I create elegant
+//                 solutions to complex problems.
+//               </p>
+//             </div>
+
+//             {/* Professional Skills Badges */}
+//             <div className="mb-4">
+//               <div
+//                 className="flex flex-wrap gap-2"
+//                 aria-label="Professional Skills"
+//               >
+//                 {languageBadges.map((badge) => (
+//                   <div
+//                     key={badge.text}
+//                     className={`
+//                       flex items-center space-x-2
+//                       px-3 py-1.5 rounded-full
+//                       ${badge.color}
+//                       transition-all
+//                       group
+//                       hover:scale-105
+//                       active:scale-95
+//                       cursor-default
+//                     `}
+//                     role="tooltip"
+//                     aria-label={badge.description}
+//                   >
+//                     <badge.icon
+//                       className="w-4 h-4
+//                       group-hover:rotate-12
+//                       transition-transform"
+//                       aria-hidden="true"
+//                     />
+//                     <span className="text-sm font-medium">{badge.text}</span>
+//                   </div>
+//                 ))}
+//               </div>
+//             </div>
+
+//             {/* Call to Action Buttons */}
+//             <div className="flex flex-wrap gap-3">
+//               {heroCTAButtons.map((button) => (
+//                 <a
+//                   key={button.text}
+//                   href={button.href}
+//                   className={`
+//                     inline-flex items-center justify-center
+//                     px-5 py-2.5
+//                     rounded-full
+//                     ${button.color}
+//                     ${button.textColor}
+//                     hover:opacity-90
+//                     active:opacity-80
+//                     transition-all
+//                     shadow-md
+//                     group
+//                     transform
+//                     hover:scale-105
+//                     active:scale-95
+//                     focus:outline-none
+//                     focus:ring-2
+//                     focus:ring-offset-2
+//                     focus:ring-blue-500
+//                     text-sm
+//                   `}
+//                   target={button.text === "View CV" ? "_blank" : undefined}
+//                   rel={
+//                     button.text === "View CV"
+//                       ? "noopener nor                   referrer"
+//                       : undefined
+//                   }
+//                   aria-label={button.ariaLabel}
+//                 >
+//                   <button.icon
+//                     className="
+//                       w-4 h-4
+//                       mr-2
+//                       group-hover:rotate-6
+//                       group-active:rotate-12
+//                       transition-transform
+//                     "
+//                     aria-hidden="true"
+//                   />
+//                   <span className="font-medium">{button.text}</span>
+//                 </a>
+//               ))}
+//             </div>
+//           </motion.div>
+
+//           {/* Right Column: Code Snippet */}
+//           <div className="hidden lg:block">{renderHeroContent()}</div>
+//         </div>
+//       </div>
+
+//       {/* Mobile Code Exploration Modal */}
+//       <CodeExplorationModal />
+//     </section>
+//   );
+// }
