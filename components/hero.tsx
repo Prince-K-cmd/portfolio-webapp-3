@@ -28,7 +28,7 @@ export function Hero() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSnippetIndex((prev) => (prev + 1) % codeSnippets.length);
-    }, 10000);
+    }, 7000);
 
     return () => clearInterval(interval);
   }, []);
@@ -206,7 +206,7 @@ export function Hero() {
               solutions to complex problems.
             </p>
 
-            {/* Animated Professional Skills Badges */}
+            {/* Professional Skills Badges */}
             <div className="mb-4">
               <div
                 className="flex flex-wrap gap-2"
@@ -216,15 +216,21 @@ export function Hero() {
                   <div
                     key={badge.text}
                     className={`
-                      flex items-center space-x-2
-                      px-3 py-1.5 rounded-full
-                      ${badge.color}
-                      transition-all
-                      group
-                      hover:scale-105
-                      active:scale-95
-                      cursor-default
-                    `}
+                    flex items-center space-x-2
+                    px-3 py-1.5 rounded-full
+                    ${
+                      badge.text === "Android Developer"
+                        ? "bg-badge-android-background text-badge-android-text"
+                        : badge.text === "Frontend Developer"
+                        ? "bg-badge-frontend-background text-badge-frontend-text"
+                        : "bg-badge-data-background text-badge-data-text"
+                    }
+                    transition-all
+                    group
+                    hover:scale-105
+                    active:scale-95
+                    cursor-default
+                  `}
                     role="tooltip"
                     aria-label={badge.description}
                   >
