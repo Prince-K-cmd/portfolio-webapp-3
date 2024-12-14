@@ -42,7 +42,7 @@ const config: Config = {
         },
         badge: {
           android: {
-            background: "hsla(hsl(217.22, 91.22%, 59.8%, 0.10)", // Light blue background
+            background: "hsla(217.22, 91.22%, 59.8%, 0.10)", // Light blue background
             text: "hsl(213.12, 93.9%, 67.84%)", // Deeper blue text
           },
           frontend: {
@@ -50,7 +50,7 @@ const config: Config = {
             text: "hsl(187.94, 85.71%, 53.33%)", // Deeper cyan text
           },
           data: {
-            background: "hsla(hsl(238.73, 83.53%, 66.67%, 0.10)", // Light green background
+            background: "hsla(238.73, 83.53%, 66.67%, 0.10)", // Light green background
             text: "hsl(234.45, 89.47%, 73.92%)", // Deeper green text
           },
         },
