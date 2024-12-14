@@ -53,8 +53,8 @@ const config: Config = {
           },
           data: {
             // background: "hsl(150, 80%, 95%)", // Light green background
-            background: "hsla(150, 80.40%, 50.00%, 0.10)", // Light green background
-            text: "hsl(150, 80%, 50%)", // Deeper green text
+            background: "hsla(150, 85.50%, 46.10%, 0.10)", // Light green background
+            text: "hsl(150, 85.50%, 46.10%)", // Deeper green text
           },
         },
         border: "hsl(var(--border))",
