@@ -42,19 +42,16 @@ const config: Config = {
         },
         badge: {
           android: {
-            // background: 'hsl(210, 80%, 95%)', // Light blue background
-            background: "hsla(210, 80.40%, 50.00%, 0.10)", // Light blue background
-            text: "hsl(210, 80%, 50%)", // Deeper blue text
+            background: "hsla(hsl(217.22, 91.22%, 59.8%, 0.10)", // Light blue background
+            text: "hsl(213.12, 93.9%, 67.84%)", // Deeper blue text
           },
           frontend: {
-            // background: "hsl(190, 80%, 95%)", // Light cyan background
-            background: "hsla(190, 80.40%, 50.00%, 0.10)", // Light cyan background
-            text: "hsl(190, 80%, 50%)", // Deeper cyan text
+            background: "hsl(188.74, 94.5%, 42.75%, 0.10)", // Light cyan background
+            text: "hsl(187.94, 85.71%, 53.33%)", // Deeper cyan text
           },
           data: {
-            // background: "hsl(150, 80%, 95%)", // Light green background
-            background: "hsla(150, 85.50%, 46.10%, 0.10)", // Light green background
-            text: "hsl(150, 85.50%, 46.10%)", // Deeper green text
+            background: "hsla(hsl(238.73, 83.53%, 66.67%, 0.10)", // Light green background
+            text: "hsl(234.45, 89.47%, 73.92%)", // Deeper green text
           },
         },
         border: "hsl(var(--border))",
