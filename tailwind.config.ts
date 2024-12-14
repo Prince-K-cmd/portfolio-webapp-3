@@ -40,6 +40,23 @@ const config: Config = {
           DEFAULT: "hsl(var(--destructive))",
           foreground: "hsl(var(--destructive-foreground))",
         },
+        badge: {
+          android: {
+            // background: 'hsl(210, 80%, 95%)', // Light blue background
+            background: "hsla(210, 80.40%, 50.00%, 0.10)", // Light blue background
+            text: "hsl(210, 80%, 50%)", // Deeper blue text
+          },
+          frontend: {
+            // background: "hsl(190, 80%, 95%)", // Light cyan background
+            background: "hsla(190, 80.40%, 50.00%, 0.10)", // Light cyan background
+            text: "hsl(190, 80%, 50%)", // Deeper cyan text
+          },
+          data: {
+            // background: "hsl(150, 80%, 95%)", // Light green background
+            background: "hsla(150, 80.40%, 50.00%, 0.10)", // Light green background
+            text: "hsl(150, 80%, 50%)", // Deeper green text
+          },
+        },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
