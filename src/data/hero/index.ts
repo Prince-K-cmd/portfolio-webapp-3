@@ -6,7 +6,7 @@ import {
   MessageCircle,
   Download,
 } from "lucide-react";
-import { resumeLink } from "@/data/header";
+import { resumeLink } from "@/src/data/header";
 
 export const languageBadges = [
   {

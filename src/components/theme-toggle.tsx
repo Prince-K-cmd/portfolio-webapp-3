@@ -6,8 +6,8 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { themeConfig } from "@/data/theme";
+} from "@/src/components/ui/dropdown-menu";
+import { themeConfig } from "@/src/data/theme";
 import { Sparkles } from "lucide-react";
 import { useTheme } from "next-themes";
 import { motion } from "framer-motion";

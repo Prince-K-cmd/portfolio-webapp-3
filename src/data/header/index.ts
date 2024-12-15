@@ -1,4 +1,4 @@
-import { LogoData, MenuItem, ResumeLink, SocialLink } from "@/types/header";
+import { LogoData, MenuItem, ResumeLink, SocialLink } from "@/src/types/header";
 import { Github, Linkedin, Mail } from "lucide-react";
 
 export const logoData: LogoData[] = [

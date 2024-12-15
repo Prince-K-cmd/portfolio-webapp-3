@@ -3,16 +3,16 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
+import { Button } from "@/src/components/ui/button";
+import { Badge } from "@/src/components/ui/badge";
 import { ExternalLink, Github, Eye } from "lucide-react";
-import { projects } from "@/data/projects";
+import { projects } from "@/src/data/projects";
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from "@/components/ui/tooltip";
+} from "@/src/components/ui/tooltip";
 
 export function Projects() {
   const [filter, setFilter] = useState("All");

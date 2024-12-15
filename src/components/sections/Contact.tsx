@@ -4,12 +4,12 @@
 
 import { useState, FormEvent } from "react";
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { useToast } from "@/hooks/use-toast";
+import { Button } from "@/src/components/ui/button";
+import { Input } from "@/src/components/ui/input";
+import { Textarea } from "@/src/components/ui/textarea";
+import { useToast } from "@/src/hooks/use-toast";
 import { Send, Mail, User, MessageCircle } from "lucide-react";
-import { ContactFormData } from "@/types/contact";
+import { ContactFormData } from "@/src/types/contact";
 
 export function Contact() {
   const [formData, setFormData] = useState<ContactFormData>({

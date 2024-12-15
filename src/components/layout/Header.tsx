@@ -238,16 +238,16 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { Menu, X, Download, Lock } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/src/components/ui/button";
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from "@/components/ui/tooltip";
-import { logoData, menuItems, socialLinks } from "@/data/header";
+} from "@/src/components/ui/tooltip";
+import { logoData, menuItems, socialLinks } from "@/src/data/header";
 import React from "react";
-import { ThemeToggle } from "@/components/theme-toggle";
+import { ThemeToggle } from "@/src/components/theme-toggle";
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);

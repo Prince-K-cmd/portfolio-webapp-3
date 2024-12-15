@@ -1,12 +1,12 @@
 "use client";
 
-import { codeSnippets } from "@/data/code-snippets";
+import { codeSnippets } from "@/src/data/code-snippets";
 import { AnimatePresence, motion } from "framer-motion";
 import { Code2, Database, Layers, RotateCw, Smartphone } from "lucide-react";
 import { useEffect, useState } from "react";
-import { CodeBlock } from "./code-block";
-import { BubblesBackground } from "./bubbles-background";
-import { heroCTAButtons, languageBadges } from "@/data/hero";
+import { CodeBlock } from "../code-block";
+import { BubblesBackground } from "../bubbles-background";
+import { heroCTAButtons, languageBadges } from "@/src/data/hero";
 
 export function Hero() {
   const [currentSnippetIndex, setCurrentSnippetIndex] = useState(0);

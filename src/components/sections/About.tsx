@@ -3,8 +3,8 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { Briefcase, GraduationCap, Code2, Heart } from "lucide-react";
-import { experience, education, interests } from "@/data/about";
-import { technicalSkills } from "@/data/skills";
+import { experience, education, interests } from "@/src/data/about";
+import { technicalSkills } from "@/src/data/skills";
 
 export function About() {
   return (

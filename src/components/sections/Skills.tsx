@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { skills } from "@/data/skills";
+import { skills } from "@/src/data/skills";
 
 export function Skills() {
   return (

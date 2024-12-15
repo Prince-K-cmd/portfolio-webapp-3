@@ -3,13 +3,13 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Globe, Sparkles } from "lucide-react";
-import { footerData } from "@/data/footer";
+import { footerData } from "@/src/data/footer";
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from "@/components/ui/tooltip";
+} from "@/src/components/ui/tooltip";
 
 export function Footer() {
   return (
