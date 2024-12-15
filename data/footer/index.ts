@@ -1,100 +1,9 @@
-// import {
-//   Home,
-//   User,
-//   Briefcase,
-//   Code,
-//   Send,
-//   Globe,
-//   Github,
-//   Linkedin,
-//   Mail,
-//   Twitter,
-// } from "lucide-react";
-
-// export const footerData = {
-//   copyright: `© ${new Date().getFullYear()} Prince Kyeremeh. All rights reserved.`,
-//   brandInfo: {
-//     name: "Prince Kyeremeh",
-//     tagline:
-//       "Crafting innovative solutions at the intersection of technology and creativity.",
-//     quote: "Code is poetry in motion, design is art in function.",
-//   },
-//   quickLinks: [
-//     {
-//       name: "Home",
-//       href: "#hero",
-//       icon: Home,
-//       color: "text-blue-500 hover:text-blue-600",
-//       ariaLabel: "Navigate to Home section",
-//     },
-//     {
-//       name: "About",
-//       href: "#about",
-//       icon: User,
-//       color: "text-green-500 hover:text-green-600",
-//       ariaLabel: "Navigate to About section",
-//     },
-//     {
-//       name: "Projects",
-//       href: "#projects",
-//       icon: Briefcase,
-//       color: "text-purple-500 hover:text-purple-600",
-//       ariaLabel: "Navigate to Projects section",
-//     },
-//     {
-//       name: "Skills",
-//       href: "#skills",
-//       icon: Code,
-//       color: "text-cyan-500 hover:text-cyan-600",
-//       ariaLabel: "Navigate to Skills section",
-//     },
-//     {
-//       name: "Contact",
-//       href: "#contact",
-//       icon: Send,
-//       color: "text-red-500 hover:text-red-600",
-//       ariaLabel: "Navigate to Contact section",
-//     },
-//   ],
-//   socialLinks: [
-//     {
-//       icon: Github,
-//       href: "https://github.com/princekm",
-//       tooltip: "GitHub Profile",
-//       color:
-//         "text-black-900 hover:text-black dark:text-gray-100 dark:hover:text-white",
-//     },
-//     {
-//       icon: Linkedin,
-//       href: "https://linkedin.com/in/princekm",
-//       tooltip: "LinkedIn Profile",
-//       color:
-//         "text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300",
-//     },
-//     {
-//       icon: Twitter,
-//       href: "https://twitter.com/princekm",
-//       tooltip: "Twitter Profile",
-//       color:
-//         "text-sky-500 hover:text-sky-700 dark:text-sky-400 dark:hover:text-sky-300",
-//     },
-//     {
-//       icon: Mail,
-//       href: "mailto:contact@princekm.dev",
-//       tooltip: "Send Email",
-//       color:
-//         "text-red-500 hover:text-red-700 dark:text-red-400 dark:hover:text-red-300",
-//     },
-//   ],
-// };
-
 import {
   Home,
   User,
   Briefcase,
   Code,
   Send,
-  Globe,
   Github,
   Linkedin,
   Twitter,
@@ -107,7 +16,8 @@ export const footerData = {
     name: "Prince Kyeremeh",
     tagline:
       "Crafting innovative solutions at the intersection of technology and creativity.",
-    quote: "Code is poetry in motion, design is art in function.",
+    // quote: "Code is poetry in motion, design is art in function.",
+    quote: "Transforming ideas into elegant, efficient code.",
   },
   quickLinks: [
     {
