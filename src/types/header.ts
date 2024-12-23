@@ -8,13 +8,6 @@ export interface MenuItem {
   icon?: LucideIcon;
 }
 
-// SocialLink type for social media links
-export interface SocialLink {
-  href: string;
-  icon: LucideIcon;
-  tooltip: string;
-}
-
 // Logo data type
 export interface LogoData {
   startBracket: string;
