@@ -5,8 +5,3 @@ export interface Skill {
   icon: LucideIcon;
   skills: string[];
 }
-
-export interface TechnicalSkill {
-  name: string;
-  proficiency: number;
-}

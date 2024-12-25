@@ -6,7 +6,7 @@ import {
   Database,
   Shield,
 } from "lucide-react";
-import { Skill, TechnicalSkill } from "../types";
+import { Skill } from "../types";
 
 export const SKILLS: Skill[] = [
   {
@@ -39,12 +39,4 @@ export const SKILLS: Skill[] = [
     icon: Shield,
     skills: ["OAuth 2.0", "JWT", "HTTPS", "Data Encryption"],
   },
-];
-
-export const TECHNICAL_SKILLS: TechnicalSkill[] = [
-  { name: "React/Next.js", proficiency: 90 },
-  { name: "TypeScript", proficiency: 85 },
-  { name: "Node.js", proficiency: 80 },
-  { name: "Python", proficiency: 75 },
-  { name: "AWS", proficiency: 70 },
 ];

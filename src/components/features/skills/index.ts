@@ -1,3 +1,3 @@
 export { Skills } from "./components/Skills";
-export { SKILLS, TECHNICAL_SKILLS } from "./constants";
-export type { Skill, TechnicalSkill } from "./types";
+export { SKILLS } from "./constants";
+export type { Skill } from "./types";
