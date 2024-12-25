@@ -11,16 +11,16 @@ export function HeaderLogo() {
         className="flex items-center space-x-2"
       >
         <span className="text-blue-400" aria-hidden="true">
-          {LOGO_DATA.startBracket}
+          {LOGO_DATA[0].startBracket}
         </span>
         <span
           className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-400"
           aria-label="Brand Name"
         >
-          {LOGO_DATA.text}
+          {LOGO_DATA[0].text}
         </span>
         <span className="text-indigo-400" aria-hidden="true">
-          {LOGO_DATA.endBracket}
+          {LOGO_DATA[0].endBracket}
         </span>
       </motion.div>
     </Link>

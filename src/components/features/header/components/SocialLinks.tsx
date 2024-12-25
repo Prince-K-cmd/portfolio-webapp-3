@@ -1,30 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Github, Linkedin, Mail } from "lucide-react";
+import { Github, Linkedin, Mail, SprayCanIcon } from "lucide-react";
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-
-const SOCIAL_LINKS = [
-  {
-    icon: Github,
-    href: "https://github.com/princekm",
-    tooltip: "GitHub Profile",
-  },
-  {
-    icon: Linkedin,
-    href: "https://linkedin.com/in/princekm",
-    tooltip: "LinkedIn Profile",
-  },
-  {
-    icon: Mail,
-    href: "mailto:contact@princekm.dev",
-    tooltip: "Send Email",
-  },
-];
+import { SOCIAL_LINKS } from "../constants";
 
 interface SocialLinksProps {
   variant?: "desktop" | "mobile";

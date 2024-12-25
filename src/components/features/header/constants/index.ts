@@ -1,6 +1,8 @@
 import { Code2, Home, User, Briefcase, Send } from "lucide-react";
+import { LogoData, MenuItem } from "../types";
+import { socialLinks } from "@/src/data/socials";
 
-export const MENU_ITEMS = [
+export const MENU_ITEMS: MenuItem[] = [
   {
     name: "About",
     href: "#about",
@@ -27,8 +29,28 @@ export const MENU_ITEMS = [
   },
 ];
 
-export const LOGO_DATA = {
-  startBracket: "<",
-  text: "KPrince-Coder",
-  endBracket: "/>",
-};
+export const LOGO_DATA: LogoData[] = [
+  {
+    startBracket: "<",
+    text: "KPrince-Coder",
+    endBracket: "/>",
+  },
+];
+
+export const SOCIAL_LINKS = [
+  {
+    icon: socialLinks.GITHUB.icon,
+    href: socialLinks.GITHUB.href,
+    tooltip: socialLinks.GITHUB.tooltip,
+  },
+  {
+    icon: socialLinks.LINKEDIN.icon,
+    href: socialLinks.LINKEDIN.href,
+    tooltip: socialLinks.LINKEDIN.tooltip,
+  },
+  {
+    icon: socialLinks.EMAIL.icon,
+    href: socialLinks.EMAIL.href,
+    tooltip: socialLinks.EMAIL.tooltip,
+  },
+];
