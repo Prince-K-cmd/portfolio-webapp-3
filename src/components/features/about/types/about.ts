@@ -20,3 +20,8 @@ export interface AboutMetadata {
   longBio: string;
   profileImage: string;
 }
+
+export interface TechnicalProficiency {
+  name: string;
+  proficiency: number;
+}

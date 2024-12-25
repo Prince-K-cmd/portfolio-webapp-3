@@ -1,4 +1,9 @@
-import { ExperienceItem, EducationItem, AboutMetadata } from "../types/about";
+import {
+  ExperienceItem,
+  EducationItem,
+  AboutMetadata,
+  TechnicalProficiency,
+} from "../types/about";
 
 export const ABOUT_METADATA: AboutMetadata = {
   name: "Prince Kyeremeh",
@@ -46,4 +51,12 @@ export const INTERESTS = [
   "Game Development",
   "Photography",
   "Hiking",
+];
+
+export const TECHNICAL_PROFICIENCIES: TechnicalProficiency[] = [
+  { name: "React/Next.js", proficiency: 90 },
+  { name: "TypeScript", proficiency: 85 },
+  { name: "Node.js", proficiency: 80 },
+  { name: "Python", proficiency: 75 },
+  { name: "AWS", proficiency: 70 },
 ];

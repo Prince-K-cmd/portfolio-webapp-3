@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { Briefcase, GraduationCap, Code2, Heart } from "lucide-react";
 
 import { ProfileSection } from "./ProfileSection";
-import { technicalSkills } from "@/src/data/skills";
+import { TECHNICAL_PROFICIENCIES } from "../constants";
 import { EXPERIENCE, EDUCATION, INTERESTS } from "../constants";
 
 export function About() {
@@ -36,7 +36,7 @@ export function About() {
               <h3 className="text-xl font-semibold">Technical Proficiency</h3>
             </div>
             <div className="space-y-4">
-              {technicalSkills.map((skill) => (
+              {TECHNICAL_PROFICIENCIES.map((skill) => (
                 <div key={skill.name}>
                   <div className="flex justify-between mb-1">
                     <span>{skill.name}</span>
