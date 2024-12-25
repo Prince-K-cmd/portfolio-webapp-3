@@ -130,6 +130,7 @@ import { Button } from "@/components/ui/button";
 import { Menu, X, Download, Lock } from "lucide-react";
 import { SocialLinks } from "./SocialLinks";
 import { MENU_ITEMS } from "../constants";
+import { resumeLink } from "@/src/data/resume/resume";
 
 interface MobileNavigationProps {
   isOpen: boolean;
@@ -226,7 +227,7 @@ export function MobileNavigation({
                   className="w-full flex items-center justify-center space-x-2 bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 group"
                 >
                   <Download className="h-4 w-4 group-hover:rotate-6 transition-transform" />
-                  <span>Download Resume</span>
+                  <Link href={resumeLink[0].href}>Download Resume</Link>
                 </Button>
 
                 <Button

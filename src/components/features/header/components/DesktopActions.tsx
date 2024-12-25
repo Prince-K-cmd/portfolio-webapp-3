@@ -10,6 +10,8 @@ import {
 } from "@/components/ui/tooltip";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { SocialLinks } from "./SocialLinks";
+import { resumeLink } from "@/src/data/resume/resume";
+import Link from "next/link";
 
 export function DesktopActions() {
   const [isAdminButtonClicked, setIsAdminButtonClicked] = useState(false);
@@ -36,7 +38,7 @@ export function DesktopActions() {
             aria-label="Download Resume"
           >
             <Download className="h-4 w-4 group-hover:rotate-6 transition-transform" />
-            <span>Resume</span>
+            <Link href={resumeLink[0].href}>Resume</Link>
           </Button>
         </TooltipTrigger>
         <TooltipContent>Download Resume</TooltipContent>
